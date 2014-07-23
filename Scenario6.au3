@@ -116,7 +116,10 @@ CheckRDPConnection()
 ;Check for published key word in Azure activity log and update excel
 ValidateTextAndUpdateExcel()
 
-;to do - Post validation steps
+
+If ProcessExists("eclipse.exe") Then
+		  ProcessClose("eclipse.exe")
+EndIf
 
 ;***************************************************************
 ;Helper Functions

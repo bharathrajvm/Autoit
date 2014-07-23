@@ -105,35 +105,38 @@ Delete()
 ;Creating Java Project
 CreateJavaProject()
 
+
 ;Creating JSP file and insert code
-CreateJSPFile()
+;CreateJSPFile()
 
 
 
 
 ;CreateAzurePackage
-CreateAzurePackage()
+;CreateAzurePackage()
 
 ;Publish to Cloud
-PublishToCloud()
+;PublishToCloud()
 
 ;Wait for 10 min RDP screen
 ;Sleep(60000)
 
 
 ;Check RDP and Open excel
-CheckRDPConnection()
+;CheckRDPConnection()
 
 ;Check for published key word in Azure activity log and update excel
 
-ValidateTextAndUpdateExcel()
+;ValidateTextAndUpdateExcel()
 
-;To Delete the Existing Project
-;Delete()
-;to do - Post validation steps
+
+;If ProcessExists("eclipse.exe") Then
+   ;ProcessClose("eclipse.exe")
+;EndIf
 
 ;***************************************************************
 ;Helper Functions
+
 ;***************************************************************
 
 ;***************************************************************

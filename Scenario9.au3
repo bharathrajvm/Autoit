@@ -125,6 +125,11 @@ ValidateTextAndUpdateExcel()
 
 ;to do - Post validation steps
 
+
+If ProcessExists("eclipse.exe") Then
+		  ProcessClose("eclipse.exe")
+EndIf
+
 ;***************************************************************
 ;Helper Functions
 ;***************************************************************

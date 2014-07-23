@@ -126,6 +126,9 @@ ValidateTextAndUpdateExcel()
 ;Helper Functions
 ;***************************************************************
 
+If ProcessExists("eclipse.exe") Then
+		  ProcessClose("eclipse.exe")
+EndIf
 
 Func wincheck($fun ,$ctrl)
  	  Local $act = WinActive($ctrl)

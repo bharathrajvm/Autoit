@@ -6,6 +6,7 @@
 #include <Array.au3>
 #include <GuiButton.au3>
 #include <MsgBoxConstants.au3>
+ #include <GuiListBox.au3>
 
 ;**********************************************************
 ;Open xls
@@ -75,7 +76,7 @@ Dim $newsession = GUICtrlCreateInput("",500,200,200,20)
 Dim $ExternalJARPath = GUICtrlCreateInput("",500,240,200,20)
 Dim $CertificatePath = GUICtrlCreateInput("",500,280,200,20)
 Dim $EclipsePath = GUICtrlCreateInput("",500,320,200,20)
-;Dim $list = _GUICtrlListBox_Create($hMainGUI,"",500,320,200,100, $LBS_EXTENDEDSEL)
+Dim $list = _GUICtrlListBox_Create($hMainGUI,"",500,320,200,100, $LBS_EXTENDEDSEL)
 
 
 Dim $hEclipseType =  GUICtrlCreateInput("",130,3,200,20)
@@ -107,10 +108,10 @@ Local $temp = $a[$loopVariable][3]
 GUICtrlSetData($hTestcase, $temp)
 Next
 
-;For $loopVariable = 2 to $arrayRowCount-1 step 1
-;Local $temp = $a[$loopVariable][3]
-;_GUICtrlListBox_AddString($list, $temp)
-;Next
+For $loopVariable = 2 to $arrayRowCount-1 step 1
+Local $temp = $a[$loopVariable][3]
+_GUICtrlListBox_AddString($list, $temp)
+Next
 
 
 
@@ -245,20 +246,18 @@ ElseIf $msg = $hCancelButton then
    ExitLoop
 ElseIf $msg = $hExecutionButton Then
 
-   Dim $name = GUICtrlRead($hTestcase)
-  Dim $AutoItExe =  @ScriptDir & '\'& $name &'.exe'
-  Run($AutoItExe)
+   ;Dim $name = GUICtrlRead($hTestcase)D:\KWS
+  ;Dim $AutoItExe =  @ScriptDir & '\'& $name &'.exe'
+  ;Run($AutoItExe)
 
-   ;$aItems = _GUICtrlListBox_GetSelItemsText($list)
-	 ;For $iI = 1 To $aItems[0]
-	   ;$sItems =  $aItems[$iI]
-		;Dim $AutoItExe =  @ScriptDir & '\'& $sItems &'.exe'
-		;Run($AutoItExe)
-		;Sleep(120000)
-		;;Dim $result = RunAsWait("bharathraj.vm","BRILLIO.COM","meaning@123$",0,$AutoItExe)
-		;;MsgBox("","",$result)
-    ; Next
-
+   $aItems = _GUICtrlListBox_GetSelItemsText($list)
+	 For $iI = 1 To $aItems[0]
+	   $sItems =  $aItems[$iI]
+	   Dim $AutoItExe =  @ScriptDir & '\'& $sItems &'.exe'
+	   MsgBox("","",$AutoItExe)
+	   Dim $result = RunAs("bharathraj.vm","BRILLIO.COM","meaning@123$",0,$AutoItExe)
+	  ProcessWaitClose($result)
+   Next
 EndIf
 ;******************************************************************************
 wend

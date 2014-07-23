@@ -123,8 +123,10 @@ CheckRDPConnection()
 ValidateTextAndUpdateExcel()
 ;to do - Post validation steps
 
-;Delete the Project after it is Published
-;Delete()
+
+If ProcessExists("eclipse.exe") Then
+		  ProcessClose("eclipse.exe")
+EndIf
 ;***************************************************************
 ;Helper Functions
 ;***************************************************************

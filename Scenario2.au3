@@ -107,6 +107,9 @@ Delete()
  ;Creating Java Project
 CreateJavaProject()
 
+
+
+
 ;Creating JSP file and insert code
 CreateJSPFile()
 
@@ -129,7 +132,10 @@ ValidateTextAndUpdateExcel()
 ;Unpublish from cloud
 UnPublish()
 
-;Delete()
+
+If ProcessExists("eclipse.exe") Then
+		  ProcessClose("eclipse.exe")
+EndIf
 
 _ExcelWriteCell($oExcel, "Test Passed" , 2, 3)
 ;MsgBox ($MB_SYSTEMMODAL, "Test Result", "Test Failed")
